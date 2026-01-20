@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+  <application android:resizeableActivity="false" android:networkSecurityConfig="@xml/network_security_config" android:allowBackup="false" tools:replace="android:allowBackup">
+    <activity android:name="com.unity3d.player.UnityPlayerActivity" android:theme="@style/UnityThemeSelector">
+      <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+      </intent-filter>
+      <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
+    </activity>
+    <meta-data android:name="android.max_aspect" android:value="2.4" />
+    <meta-data android:name="com.yandex.mobile.ads.AUTOMATIC_SDK_INITIALIZATION" android:value="false" />
+    <meta-data android:name="google_analytics_default_allow_analytics_storage" android:value="true" />
+    <meta-data android:name="google_analytics_default_allow_ad_storage" android:value="true" />
+    <meta-data android:name="google_analytics_default_allow_ad_user_data" android:value="true" />
+    <meta-data android:name="google_analytics_default_allow_ad_personalization_signals" android:value="true" />
+    <receiver android:name="com.unity.androidnotifications.UnityNotificationManager" android:exported="true" tools:replace="android:exported" />
+  </application>
+  <uses-permission android:name="android.permission.VIBRATE" />
+</manifest>

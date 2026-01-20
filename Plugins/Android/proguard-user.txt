@@ -1,0 +1,50 @@
+-keep class com.google.android.** { *;}
+-keep class com.google.firebase.**{*;}
+-keep class com.google.firebase.crashlytics.** { *; }
+-keep class com.google.firebase.crashlytics.ndk.** { *; }
+-keep class com.my.target.** { *; }
+-keep class Mycom.Target.Unity.** { *; }
+-keep class com.facebook.** {*;}
+-keep class com.google.nativelib.** {*;}
+-keep class com.google.googlesignin.** {*;}
+-keep class com.unity.purchasing.** {*;}
+-keep class com.android.billingclient.** {*;}
+-keep class com.unity.androidnotifications.** {*;}
+-keep class linkdesks.pop.bubblegames.customads.** { *;}
+-keep class com.applovin.** {*;}
+-keep class com.ironsource.** {*;}
+-keep class com.unity3d.** {*;}
+-keep class com.vungle.** {*;}
+-keep class com.google.ads.** { *;}
+-keep class com.google.unity.** { *;}
+-keep class com.google.** { public *; }
+-keep class com.chartboost.** { *;}
+-keep class game.android.**{ *;}
+-keep class com.amazon.** {*;}
+-keep class com.iabtcf.** {*;}
+-keep class com.amazon.device.ads.** { *; }
+-keep class com.iabtcf.** { *; }
+-keep class com.DefaultCompany.AndroidJavaProxyCrash.** { *; }
+-keep class com.google.unity.** {*;}
+-keep public class com.google.android.gms.ads.**{public *;}
+-keep public class com.google.ads.**{ public *;}
+-keep class com.appsflyer.** { *; }
+-dontwarn com.appsflyer.**
+-keep class kotlin.jvm.internal.Intrinsics{ *; }
+-keep class kotlin.collections.**{ *; }
+-keep class com.unity.androidnotifications.UnityNotificationRestartOnBootReceiver { *; }
+-keep,includedescriptorclasses public class com.google.firebase.remoteconfig.ConfigUpdateListenerRegistration { *; }
+-keep class com.mbridge.msdk.** { *; }
+
+# 保留 Unity 通知类
+-keep class com.unity.androidnotifications.** { *; }
+-keep interface com.unity.androidnotifications.** { *; }
+# 保留广播接收器
+-keep public class * extends android.content.BroadcastReceiver
+# 保留 Yandex 广告 SDK
+-keep class com.yandex.mobile.ads.** { *; }
+# 保留 Looper 相关方法
+-keepclassmembers class android.os.Looper {public static ** myLooper();}
+# 保留 AndroidX 核心组件
+-keep class androidx.core.content.** { *; }
+-keepattributes *Annotation*
