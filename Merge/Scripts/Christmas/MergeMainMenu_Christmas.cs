@@ -36,14 +36,20 @@ namespace Merge
 
         public override void OnPause()
         {
-            m_ChristmasEntrance.interactable = false;
+            if (m_ChristmasEntrance != null)
+            {
+                m_ChristmasEntrance.interactable = false;
+            }
 
             base.OnPause();
         }
 
         public override void OnResume()
         {
-            m_ChristmasEntrance.interactable = true;
+            if (m_ChristmasEntrance != null)
+            {
+                m_ChristmasEntrance.interactable = true;
+            }
 
             base.OnResume();
         }
@@ -58,14 +64,26 @@ namespace Merge
         protected override void InitializeButton()
         {
             base.InitializeButton();
-            
+
+            if (m_ChristmasEntrance == null)
+            {
+                Debug.LogError($"{nameof(MergeMainMenu_Christmas)}: {nameof(m_ChristmasEntrance)} is not assigned.", this);
+                return;
+            }
+
             m_ChristmasEntrance.OnInit(OnChristmasEntranceButtonClick);
-            
+
             m_ChristmasEntrance.interactable = true;
         }
 
         public void RefreshChristmasEntrance()
         {
+            if (m_ChristmasTipIconText == null || m_ChristmasTipIcon == null)
+            {
+                Debug.LogError($"{nameof(MergeMainMenu_Christmas)}: Christmas tip icon references are not assigned.", this);
+                return;
+            }
+
             int time = GetCanShowChristmasPropRank(MergeManager.PlayerData.GetCurrentMaxMergeStage() + 1) - MergeManager.PlayerData.GetChristmasDecorationStage();
             if (time > 0)
             {
@@ -101,6 +119,12 @@ namespace Merge
         
         public void RefreshChristmasBubbleFullEffect()
         {
+            if (m_ChristmasEntanceEffect == null || m_ChristmasTimer == null)
+            {
+                Debug.LogError($"{nameof(MergeMainMenu_Christmas)}: Christmas entrance effect or timer is not assigned.", this);
+                return;
+            }
+
             if (CheckChristmasBubbleFull())
             {
                 m_ChristmasEntanceEffect.SetActive(true);
