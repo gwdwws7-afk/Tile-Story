@@ -128,6 +128,7 @@ Transform:
   - {fileID: 1898827961402087605}
   - {fileID: 1284862266587116}
   - {fileID: 1291491266241428365}
+  - {fileID: 7777777777777777777}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &861965915220854885
@@ -149,6 +150,7 @@ MonoBehaviour:
   - {fileID: 7841472868619102752}
   - {fileID: 8359455723052907322}
   - {fileID: 4531620225830360828}
+  - {fileID: 7777777777777777776}
 --- !u!1 &861965915411109090
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,6 +282,51 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9486d9eff0010e48910c60a104536aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IncludeInBuild: 1
+--- !u!1 &7777777777777777778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7777777777777777777}
+  - component: {fileID: 7777777777777777776}
+  m_Layer: 0
+  m_Name: MergeActivity_Cat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7777777777777777777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777777777777777778}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 861965915220854884}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7777777777777777776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7777777777777777778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c15450b1fc14a96acbdb924ecce592e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IncludeInBuild: 1

@@ -588,6 +588,113 @@ namespace Merge
 
         #endregion
 
+        #region Cat
+
+        public int GetCatDecorationStage()
+        {
+            return PlayerPrefs.GetInt("CatDecorationStage2024", 0);
+        }
+
+        public void SetCatDecorationStage(int stage)
+        {
+            PlayerPrefs.SetInt("CatDecorationStage2024", stage);
+        }
+
+        public int GetCatBubbleRewardId(int index)
+        {
+            return PlayerPrefs.GetInt("CatBubbleRewardId_" + index.ToString(), 0);
+        }
+
+        public void SetCatBubbleRewardId(int index, int id)
+        {
+            PlayerPrefs.SetInt("CatBubbleRewardId_" + index.ToString(), id);
+        }
+
+        public void ClearAllCatBubbleRewardId()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                SetCatBubbleRewardId(i, 0);
+            }
+        }
+
+        public DateTime GetCatBubbleGetRewardTime(int index)
+        {
+            var timeString = PlayerPrefs.GetString("CatBubbleGetRewardTime_" + index.ToString(), string.Empty);
+
+            if (!string.IsNullOrEmpty(timeString))
+            {
+                try
+                {
+                    return DateTime.ParseExact(timeString, Constant.GameConfig.DefaultDateTimeFormet,
+                        System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    PlayerPrefs.DeleteKey("CatBubbleGetRewardTime_" + index.ToString());
+                    return Constant.GameConfig.DateTimeMin;
+                }
+            }
+            else
+            {
+                return Constant.GameConfig.DateTimeMin;
+            }
+        }
+
+        public void SetCatBubbleGetRewardTime(int index, DateTime time)
+        {
+            PlayerPrefs.SetString("CatBubbleGetRewardTime_" + index.ToString(),
+                time.ToString(Constant.GameConfig.DefaultDateTimeFormet,
+                    System.Globalization.CultureInfo.InvariantCulture));
+        }
+
+        public void ClearCatBubbleGetRewardTime(int index)
+        {
+            PlayerPrefs.DeleteKey("CatBubbleGetRewardTime_" + index.ToString());
+        }
+
+        public void ClearCatBubbleGetRewardTime()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                PlayerPrefs.DeleteKey("CatBubbleGetRewardTime_" + i.ToString());
+            }
+
+            PlayerPrefs.DeleteKey("CatBubbleGetRewardRVTime");
+        }
+
+        public DateTime GetCatBubbleGetRewardRVTime()
+        {
+            var timeString = PlayerPrefs.GetString("CatBubbleGetRewardRVTime", string.Empty);
+
+            if (!string.IsNullOrEmpty(timeString))
+            {
+                try
+                {
+                    return DateTime.ParseExact(timeString, Constant.GameConfig.DefaultDateTimeFormet,
+                        System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    PlayerPrefs.DeleteKey("CatBubbleGetRewardRVTime");
+                    return Constant.GameConfig.DateTimeMin;
+                }
+            }
+            else
+            {
+                return Constant.GameConfig.DateTimeMin;
+            }
+        }
+
+        public void SetCatBubbleGetRewardRVTime(DateTime time)
+        {
+            PlayerPrefs.SetString("CatBubbleGetRewardRVTime",
+                time.ToString(Constant.GameConfig.DefaultDateTimeFormet,
+                    System.Globalization.CultureInfo.InvariantCulture));
+        }
+
+        #endregion
+
         /// <summary>
         /// 清空所有数据
         /// </summary>
@@ -612,6 +719,10 @@ namespace Merge
             SetDogDecorationStage(0);
             ClearAllDogBubbleRewardId();
             ClearDogBubbleGetRewardTime();
+
+            SetCatDecorationStage(0);
+            ClearAllCatBubbleRewardId();
+            ClearCatBubbleGetRewardTime();
         }
     }
 }
