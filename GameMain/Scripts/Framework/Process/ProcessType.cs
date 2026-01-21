@@ -66,7 +66,8 @@ public enum ProcessType
 
     //Christmas
     AutoShowChristmasProcess,
-    
+    AutoShowDogProcess,
+
     //pk
     ShowPkGameOver,
     ShowPkGame,

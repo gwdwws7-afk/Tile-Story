@@ -75,11 +75,10 @@ public class TileImageCell : FancyScrollRectCell<int, Context>
         });
         JumpToPackBuyBtn.SetBtnEvent(() =>
         {
-            //if (IsSpecialID())
-            //{
-            //    GameManager.UI.ShowUIForm<Valentine2024TwoColumnPackMenu>();
-            //    return;
-            //}
+            if (IsSpecialID())
+            {
+                GameManager.UI.ShowUIForm("ValentinePackMenu", UIFormType.PopupUI);
+            }
         });
         JumpToActivityBtn.SetBtnEvent(() =>
         {
@@ -194,10 +193,12 @@ public class TileImageCell : FancyScrollRectCell<int, Context>
     private bool IsSpecialID()
     {
         //如果在礼包周期内
-        //if (data.ID == 1003)
-        //{
-        //    return true;
-        //}
+        if (data.ID == 1004 && DateTime.Now > ValentinePackMenu.GiftPackStartTime &&
+            DateTime.Now < ValentinePackMenu.GiftPackEndTime &&
+            GameManager.PlayerData.NowLevel >= Constant.GameConfig.UnlockPackLevel) 
+        {
+            return true;
+        }
         return false;
     }
 

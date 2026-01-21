@@ -221,5 +221,16 @@ public enum ProductNameType
     NewYear_Card_Package_Big_Free1,
     NewYear_Card_Package_Big_Free2,
     
+    Valentine_Package_Small_New,
+    Valentine_Package_Middle_New,
+    Valentine_Package_Big_New,
+    Valentine_Package_Small_line,
+    Valentine_Package_Middle_line,
+    Valentine_Package_Big_line,
+    Valentine_Chest_Package_Big_New,
+    Valentine_Card_Package_Small_New,
+    Valentine_Card_Package_Middle_New,
+    Valentine_Card_Package_Big_New,
+    
     None,
 }

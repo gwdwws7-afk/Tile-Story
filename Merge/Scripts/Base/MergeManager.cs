@@ -469,7 +469,101 @@ namespace Merge
         }
 
         #endregion
-        
+
+        #region Dog
+
+        private IDataTable<DRDogBubbleConfig> m_DogBubbleConfig;
+        public IDataTable<DRDogBubbleConfig> DogBubbleConfig
+        {
+            get
+            {
+                if (m_DogBubbleConfig == null)
+                {
+                    m_DogBubbleConfig = DataTable.GetDataTable<DRDogBubbleConfig>();
+                }
+
+                return m_DogBubbleConfig;
+            }
+        }
+
+        private IDataTable<DRDogBubbleReward> m_DogBubbleReward;
+        public IDataTable<DRDogBubbleReward> DogBubbleReward
+        {
+            get
+            {
+                if (m_DogBubbleReward == null)
+                {
+                    m_DogBubbleReward = DataTable.GetDataTable<DRDogBubbleReward>();
+                }
+
+                return m_DogBubbleReward;
+            }
+        }
+
+        public int GetRandomDogBubbleRewardId()
+        {
+            DRDogBubbleReward[] allDatas = DogBubbleReward.GetAllDataRows();
+            int totalWeight = 0;
+            foreach (var data in allDatas)
+            {
+                totalWeight += data.WeightRandom;
+            }
+
+            int randomWeight = UnityEngine.Random.Range(1, totalWeight + 1);
+            foreach (var data in allDatas)
+            {
+                randomWeight -= data.WeightRandom;
+                if (randomWeight <= 0)
+                {
+                    return data.Id;
+                }
+            }
+
+            return 1;
+        }
+
+        public DRDogBubbleReward GetDogBubbleRewardData(int id)
+        {
+            return DogBubbleReward.GetDataRow(id);
+        }
+
+        public int GetDogMaxBubbleNum()
+        {
+            if (DogBubbleConfig != null)
+            {
+                DRDogBubbleConfig config = DogBubbleConfig.GetDataRow(PlayerData.GetDogDecorationStage());
+                return config != null ? config.MaxBubbleNum : 0;
+            }
+
+            return 0;
+        }
+
+        public int GetDogGenerateBubbleNumPerTime()
+        {
+            if (DogBubbleConfig != null)
+            {
+                DRDogBubbleConfig config = DogBubbleConfig.GetDataRow(PlayerData.GetDogDecorationStage());
+                return config != null ? config.GenerateNumPerTime : 0;
+            }
+
+            return 1;
+        }
+
+        public int GetDogGenerateBubbleMinutes()
+        {
+            if (DogBubbleConfig != null)
+            {
+                DRDogBubbleConfig config = DogBubbleConfig.GetDataRow(PlayerData.GetDogDecorationStage());
+                return config != null ? config.GenerateBubbleMinutes : 0;
+            }
+
+            return 5;
+        }
+
+        #endregion
+
+
+
         #region Reward
 
         private List<ItemData> PerformRewardSettlement()

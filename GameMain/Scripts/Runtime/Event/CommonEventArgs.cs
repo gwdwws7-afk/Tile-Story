@@ -62,7 +62,8 @@ public enum CommonEventType
     EndlessBalance,
     
     ChristmasBubbleGetRewardRVTime,
-    
+    DogBubbleGetRewardRVTime,
+
     PkListenData,
     PkGameOver,
     PkGameStart,

@@ -42,7 +42,7 @@ namespace MySelf.Model
 		#endregion
 		
         public static int MaxLevel = 1000000;
-		public static int TotalLevelNum = 1900;
+		public static int TotalLevelNum = 2000;
 		public static int EachChapterLevelNum = 45;
 		public static int RandomLevelMin = 501;
 

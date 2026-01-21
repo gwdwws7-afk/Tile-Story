@@ -30,5 +30,6 @@ namespace Merge
         Guide_DigDialog7,
         
         Guide_DecorateChristmasTree,
+        Guide_DecorateDogTree,
     }
 }

@@ -826,12 +826,12 @@ public sealed class ProcedureExecuteProcess : ProcedureBase
         
         if (!isNeedShow)
         {
-            isNeedShow = ShowPackProcess("AnimalPackMenu", Constant.GameConfig.UnlockPackLevel, AnimalPackMenu.GiftPackStartTime, AnimalPackMenu.GiftPackEndTime, 3);
+            isNeedShow = ShowPackProcess("SweetMomentsPackThreeColumnPackMenu", Constant.GameConfig.UnlockPackLevel, SweetMomentsPackThreeColumnPackMenu.GiftPackStartTime, SweetMomentsPackThreeColumnPackMenu.GiftPackEndTime, 3);
         }
         
         if (!isNeedShow)
         {
-            isNeedShow = ShowPackProcess("SweetMomentsPackThreeColumnPackMenu", Constant.GameConfig.UnlockPackLevel, SweetMomentsPackThreeColumnPackMenu.GiftPackStartTime, SweetMomentsPackThreeColumnPackMenu.GiftPackEndTime, 3);
+            isNeedShow = ShowPackProcess("ValentinePackMenu", Constant.GameConfig.UnlockPackLevel, ValentinePackMenu.GiftPackStartTime, ValentinePackMenu.GiftPackEndTime, 3);
         }
         
         if (!isNeedShow)

@@ -117,7 +117,7 @@ public sealed partial class FirebaseManager : GameFrameworkModule, IFirebaseMana
             
             {Constant.RemoteConfig.ItemFunction_Change_Scale,false},
             
-            {Constant.RemoteConfig.BG_Change_1to5,true},
+            {Constant.RemoteConfig.BG_Change_1to5,false},
         };
 
         FirebaseRemoteConfig.DefaultInstance.SetDefaultsAsync(defaults).ContinueWithOnMainThread(task =>

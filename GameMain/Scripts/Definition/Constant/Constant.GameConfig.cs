@@ -8,7 +8,7 @@ public static partial class Constant
     public static class GameConfig
     {
         //最大关卡(levelmodel里TotalLevelNum也要改)
-        public const int MaxLevel = 1900;
+        public const int MaxLevel = 2000;
 
         //最大装修区域
         internal const int MaxDecorationArea = 48;

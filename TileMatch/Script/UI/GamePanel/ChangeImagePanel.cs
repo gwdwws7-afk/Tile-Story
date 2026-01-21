@@ -361,8 +361,8 @@ public static class BGSmallUtil
 	public static Sprite GetSprite(int index)
 	{
 		//这里有可能ab 变化，所以已添加处理
-		//int newIndex =index.GetNewBgImageIndex();
-		if (Dict.TryGetValue(index,out Sprite sprite))
+		int newIndex =index.GetNewBgImageIndex();
+		if (Dict.TryGetValue(newIndex,out Sprite sprite))
 		{
 			return sprite;
 		}

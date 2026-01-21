@@ -478,9 +478,116 @@ namespace Merge
                 time.ToString(Constant.GameConfig.DefaultDateTimeFormet,
                     System.Globalization.CultureInfo.InvariantCulture));
         }
-        
+
         #endregion
-        
+
+        #region Dog
+
+        public int GetDogDecorationStage()
+        {
+            return PlayerPrefs.GetInt("DogDecorationStage2024", 0);
+        }
+
+        public void SetDogDecorationStage(int stage)
+        {
+            PlayerPrefs.SetInt("DogDecorationStage2024", stage);
+        }
+
+        public int GetDogBubbleRewardId(int index)
+        {
+            return PlayerPrefs.GetInt("DogBubbleRewardId_" + index.ToString(), 0);
+        }
+
+        public void SetDogBubbleRewardId(int index, int id)
+        {
+            PlayerPrefs.SetInt("DogBubbleRewardId_" + index.ToString(), id);
+        }
+
+        public void ClearAllDogBubbleRewardId()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                SetDogBubbleRewardId(i, 0);
+            }
+        }
+
+        public DateTime GetDogBubbleGetRewardTime(int index)
+        {
+            var timeString = PlayerPrefs.GetString("DogBubbleGetRewardTime_" + index.ToString(), string.Empty);
+
+            if (!string.IsNullOrEmpty(timeString))
+            {
+                try
+                {
+                    return DateTime.ParseExact(timeString, Constant.GameConfig.DefaultDateTimeFormet,
+                        System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    PlayerPrefs.DeleteKey("DogBubbleGetRewardTime_" + index.ToString());
+                    return Constant.GameConfig.DateTimeMin;
+                }
+            }
+            else
+            {
+                return Constant.GameConfig.DateTimeMin;
+            }
+        }
+
+        public void SetDogBubbleGetRewardTime(int index, DateTime time)
+        {
+            PlayerPrefs.SetString("DogBubbleGetRewardTime_" + index.ToString(),
+                time.ToString(Constant.GameConfig.DefaultDateTimeFormet,
+                    System.Globalization.CultureInfo.InvariantCulture));
+        }
+
+        public void ClearDogBubbleGetRewardTime(int index)
+        {
+            PlayerPrefs.DeleteKey("DogBubbleGetRewardTime_" + index.ToString());
+        }
+
+        public void ClearDogBubbleGetRewardTime()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                PlayerPrefs.DeleteKey("DogBubbleGetRewardTime_" + i.ToString());
+            }
+
+            PlayerPrefs.DeleteKey("DogBubbleGetRewardRVTime");
+        }
+
+        public DateTime GetDogBubbleGetRewardRVTime()
+        {
+            var timeString = PlayerPrefs.GetString("DogBubbleGetRewardRVTime", string.Empty);
+
+            if (!string.IsNullOrEmpty(timeString))
+            {
+                try
+                {
+                    return DateTime.ParseExact(timeString, Constant.GameConfig.DefaultDateTimeFormet,
+                        System.Globalization.CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    PlayerPrefs.DeleteKey("DogBubbleGetRewardRVTime");
+                    return Constant.GameConfig.DateTimeMin;
+                }
+            }
+            else
+            {
+                return Constant.GameConfig.DateTimeMin;
+            }
+        }
+
+        public void SetDogBubbleGetRewardRVTime(DateTime time)
+        {
+            PlayerPrefs.SetString("DogBubbleGetRewardRVTime",
+                time.ToString(Constant.GameConfig.DefaultDateTimeFormet,
+                    System.Globalization.CultureInfo.InvariantCulture));
+        }
+
+        #endregion
+
         /// <summary>
         /// 清空所有数据
         /// </summary>
@@ -501,6 +608,10 @@ namespace Merge
             SetChristmasDecorationStage(0);
             ClearAllChristmasBubbleRewardId();
             ClearChristmasBubbleGetRewardTime();
+
+            SetDogDecorationStage(0);
+            ClearAllDogBubbleRewardId();
+            ClearDogBubbleGetRewardTime();
         }
     }
 }

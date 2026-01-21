@@ -127,13 +127,16 @@ public class GoldCollectionColumn : MonoBehaviour
     /// </summary>
     private void InitRewardArea()
     {
-        string rewardImageSp = "";
+        string rewardImageSp = string.Empty;
         if (rewardType.Count == 1)
         {
             rewardImageSp = UnityUtility.GetRewardSpriteKey(rewardType[0], rewardNum[0]);
             rewardText.SetItemText(rewardNum[0], rewardType[0], false);
             rewardImage.transform.localPosition = new Vector3(-90, -8);
-            rewardImage.transform.localScale = Vector3.one;
+            if (rewardImageSp == "Coin3") 
+                rewardImage.transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+            else
+                rewardImage.transform.localScale = Vector3.one;
         }
         else
         {

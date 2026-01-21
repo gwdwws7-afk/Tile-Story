@@ -14,5 +14,6 @@ public enum MergeTheme
 	LoveGiftBattle = 4, //约会大作战
 	DigTreasure = 5, //挖宝
 	Cinderella = 6, //灰姑娘
-	Test = 7, //测试
+    Dog = 7, //测试
 }
+
