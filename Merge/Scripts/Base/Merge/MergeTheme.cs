@@ -15,5 +15,5 @@ public enum MergeTheme
 	DigTreasure = 5, //挖宝
 	Cinderella = 6, //灰姑娘
     Dog = 7, //测试
+    Cat = 8, //猫
 }
-
