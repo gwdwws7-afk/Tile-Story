@@ -63,6 +63,7 @@ public enum CommonEventType
     
     ChristmasBubbleGetRewardRVTime,
     DogBubbleGetRewardRVTime,
+    CatBubbleGetRewardRVTime,
 
     PkListenData,
     PkGameOver,
